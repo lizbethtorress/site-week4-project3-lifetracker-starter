@@ -4,8 +4,8 @@ import "./App.css";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import { useState } from "react";
-import LoginForm from "../LoginForm/LoginForm";
-import RegistrationForm from "../RegistrationForm/RegistrationForm";
+import ActivityPage from "../ActivityPage/ActivityPage";
+import LandingPage from "../LandingPage/LandingPage";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -68,26 +68,40 @@ function App() {
   const handleLogout = () => {
     setLoggedIn(false);
   };
+  const [appState, setAppState] = useState({
+    isProcessing: false,
+    data: [] // Sample data, replace with your actual data structure
+  });
 
   return (
+    
     <Router>
       <main>
         <div>
-          <Navbar />
+          <Navbar isLoggedIn={loggedIn} />
+        
           {loggedIn ? (
             <>
               <div>
-                <h1>Welcome! You are logged in!!</h1>
-                <button onClick={handleLogout}>Logout</button>
+                <Routes>
+                  <Route
+                    exact
+                    path="/activity"
+                    element={<ActivityPage appState={appState} />}
+                  />
+                  <Route exact path="/" element={<LandingPage/>} />
+                </Routes>
               </div>
             </>
           ) : (
+            
             <Routes>
-              {/* <Route exact path="/" component={Landing} /> */}
+              
+              <Route exact path="/" element={<LandingPage/>} />
               <Route
                 exact
                 path="/login"
-                element={<LoginPage onLogin={handleLogin} error={loginError} />}
+                element={<LoginPage onLogin={handleLogin} error={loginError} setlogin = {setLoggedIn}/>}
               />
               <Route
                 exact
@@ -96,37 +110,8 @@ function App() {
                   <RegistrationPage handleRegistration={handleRegistration} />
                 }
               />
-              {/* <Route exact path="/activity" component={ActivityPage} />
-            <Route exact path="/nutrition/:id" component={NutritionPage} />
-            <Route exact path="/access-forbidden" component={AccessForbidden} /> */}
             </Routes>
-            // <div>
-            //   <Route
-            //     exact
-            //     path="/login"
-            //     element={<LoginPage onLogin={handleLogin} error={loginError} />}
-            //   />
-            //   <RegistrationForm onRegister={handleRegistration} />
-            // </div>
           )}
-          {/* <Routes>
-            <Route exact path="/" component={Landing} />
-            <Route
-              exact
-              path="/login"
-              element={<LoginPage onLogin={handleLogin} error={loginError} />}
-            />
-            <Route
-              exact
-              path="/register"
-              element={
-                <RegistrationPage handleRegistration={handleRegistration} />
-              }
-            />
-            <Route exact path="/activity" component={ActivityPage} />
-            <Route exact path="/nutrition/:id" component={NutritionPage} />
-            <Route exact path="/access-forbidden" component={AccessForbidden} />
-          </Routes> */}
         </div>
       </main>
     </Router>

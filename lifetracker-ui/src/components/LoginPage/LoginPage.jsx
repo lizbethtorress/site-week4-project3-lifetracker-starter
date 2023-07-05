@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginForm from "../LoginForm/LoginForm";
 
-const LoginPage = ({ onLogin, error }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const LoginPage = ({ onLogin, error, setlogin }) => {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     // Check if user is already logged in (using a custom hook, context, or state)
@@ -11,12 +11,12 @@ const LoginPage = ({ onLogin, error }) => {
       localStorage.getItem("isLoggedIn") ===
       "true"; /* Logic to check if user is logged in */
 
-    setIsLoggedIn(userIsLoggedIn);
+    setlogin(userIsLoggedIn);
   }, []);
 
-  if (isLoggedIn) {
-    return <Link to="/activity" />;
-  }
+  // if (isLoggedIn) {
+  //   return <Link to="/activity" />;
+  // }
 
   return (
     <div className="login-page">

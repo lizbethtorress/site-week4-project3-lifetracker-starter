@@ -1,0 +1,67 @@
+/* .nav-links:hover {
+    transform: scale(1.1); 
+  } */
+/* .logout-button:hover{
+    transform: scale(1.1); 
+}
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links div,
+  .nav-links button,
+  .nav-links a {
+    border: 1px solid #333333; Added border property
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+  
+  .nav-links button {
+    background-color: #333333;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333333;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  } */
+.sleep:hover {
+    transform: scale(1.1); 
+}
+.Nutrition:hover {
+    transform: scale(1.1); 
+}
+.Activity:hover {
+    transform: scale(1.1); 
+}
+.register:hover {
+    transform: scale(1.1); 
+}
+.login:hover {
+    transform: scale(1.1); 
+    color: #ff0000; 
+}
+.logout-button:hover{
+    transform: scale(1.1); 
+}
+.nav-links button,
+  .nav-links a {
+    border: 1px solid #333333; /*Added border property*/
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+  .nav-links a:hover {
+    font-size: large;/* Change hover font color */
+  }
+  .Actvity{
+    color: aliceblue;
+  }

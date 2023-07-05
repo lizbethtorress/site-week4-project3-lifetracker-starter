@@ -1,30 +1,42 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import Navbar from '../Navbar/Navbar'
+import React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import "./NavLinks.css";
 
-const NavLinks = ({ isLoggedIn, logoutUser }) => {
-    const handleLogout = () => {
-      localStorage.removeItem('lifetracker_token');
-      window.location.reload(); // Refresh the page
-    };
+const NavLinks = ({ isLoggedIn }) => {
   
-    return (
-      <div className="nav-links">
-        <Link to="/activity">Activity</Link>
-        <Link to="/nutrition">Nutrition</Link>
-        <Link to="/resources">Other Resource</Link>
-        {isLoggedIn ? (
-          <button className="logout-button" onClick={handleLogout}>
-            Logout
-          </button>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-          </>
-        )}
-      </div>
-    );
+  const handleLogout = () => {
+    // localStorage.removeItem('lifetracker_token');
+    window.location = "/"; // Refresh the page
   };
-  
-  export default NavLinks;
+
+  return (
+    <div className="nav-links">
+      <div className="Activity">
+        <Link to="/activity">Activity</Link>
+      </div>
+      <div className="Nutrition">
+        <Link to="/nutrition">Nutrition</Link>
+      </div>
+      <div className="sleep">
+        <Link to="/sleep">Sleep</Link>
+      </div>
+      {isLoggedIn ? (
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
+      ) : (
+        <>
+          <div className="login">
+            <Link to="/login">Login</Link>
+          </div>
+          <div className="register">
+            <Link to="/register">Register</Link>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default NavLinks;

@@ -1,12 +1,29 @@
 .registration-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f8f8f8;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 100px auto; /* Add margin to move the form down */
+  background-color: #f8f8f8;
+}
+.login-container-here {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/564x/18/b0/cd/18b0cdd01791303308c4703fc3302c26.jpg");
+  background-size: cover;
+  background-position: center;
+}
   .form-group {
     display: flex;
     flex-direction: column;
@@ -34,10 +51,9 @@
   
   .submit-registration {
     padding: 10px 20px;
-    
     border: none;
     border-radius: 5px;
-    background-color: #ff6f69;
+    background-color: rgb(88, 165, 196);
     color: #fff;
     font-size: 16px;
     cursor: pointer;
