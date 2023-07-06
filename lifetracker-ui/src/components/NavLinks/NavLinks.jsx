@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import "./NavLinks.css";
 
-const NavLinks = ({ isLoggedIn }) => {
+const NavLinks = ({ isLoggedIn, setLoggedIn}) => {
   
   const handleLogout = () => {
-    // localStorage.removeItem('lifetracker_token');
-    window.location = "/"; // Refresh the page
+    localStorage.removeItem("token");
+    setLoggedIn(false)
+    window.location = "/";  //Refresh the page
   };
 
   return (

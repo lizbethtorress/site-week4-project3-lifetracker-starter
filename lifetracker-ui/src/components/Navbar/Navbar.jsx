@@ -5,7 +5,7 @@ import { useState } from "react";
 import LoginForm from "../LoginForm/LoginForm";
 import "./Navbar.css"
 
-const Navbar = ({isLoggedIn}) => {
+const Navbar = ({isLoggedIn, setLoggedIn}) => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // const logoutUser = () => {
@@ -28,7 +28,7 @@ const Navbar = ({isLoggedIn}) => {
           />
         </Link>
       </div>
-      <NavLinks isLoggedIn={isLoggedIn} />
+      <NavLinks isLoggedIn={isLoggedIn} setLoggedIn={setLoggedIn} />
       {/* <LoginForm loginUser={loginUser} /> */}
     </nav>
   );

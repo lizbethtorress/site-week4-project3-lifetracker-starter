@@ -25,7 +25,7 @@ const RegistrationForm = ({ handleRegistration }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegistration(name, email, password);
+    handleRegistration(name, email, password, username, lastName);
   };
 
   return (

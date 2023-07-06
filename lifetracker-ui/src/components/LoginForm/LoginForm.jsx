@@ -34,7 +34,7 @@ const LoginForm = ({ onLogin, error }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onLogin(email, password);
-    // navigate("/activity")
+    navigate("/activity")
   };
 
   return (

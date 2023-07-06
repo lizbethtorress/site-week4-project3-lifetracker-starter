@@ -1,21 +1,17 @@
-import React from 'react';
-import Loading from '../Loading/loading';
-// import ActivityFeed from '../ActivityFeed/ActivityFeed';
-
+import React from "react";
+import Loading from "../Loading/loading";
+import ActivityFeed from "../ActivityFeed/ActivityFeed";
 
 const ActivityPage = ({ appState }) => {
-  const { isProcessing, data } = appState;
-
+  const { isProcessing, activityData } = appState;
   return (
     <div className="activity-page">
       {isProcessing ? (
         <Loading />
       ) : (
-        // <ActivityFeed data={data} />
-        <h2>Hello</h2>
+        <ActivityFeed activityData={activityData} />
       )}
     </div>
   );
 };
-
 export default ActivityPage;
