@@ -8,19 +8,10 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  /* h2 {
-    margin-top: 0;
-  } */
-  
   .form-group {
     margin-bottom: 15px;
   }
   
-  /* label {
-    display: block;
-    font-weight: bold;
-  }
-   */
   input[type="date"],
   input[type="time"] {
     width: 100%;
@@ -54,7 +45,7 @@
   
   .form-button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: rgb(127, 206, 210);
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -69,4 +60,24 @@
     cursor: pointer;
     margin-top: 20px;
   }
+  .sleep-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
   
+  .sleep-item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f8f8f8;
+  }
+  
+  .sleep-item p {
+    margin: 0;
+  }
+  
+  .sleep-item p:first-child {
+    font-weight: bold;
+  }

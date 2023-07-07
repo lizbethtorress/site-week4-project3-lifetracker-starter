@@ -1,12 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
-const ActivityFeed = () => {
-  return (
-    <div>ActivityFeed</div>
-  )
-}
+// const ActivityFeed = () => {
+//   return (
+//     <div>ActivityFeed</div>
+//   )
+// }
 
-export default ActivityFeed
+// export default ActivityFeed
 
 
 // import React from 'react';

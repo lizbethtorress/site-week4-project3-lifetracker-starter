@@ -1,5 +1,6 @@
 import React from "react";
 import SleepForm from "../SleepForm/SleepForm";
+import SleepHero from "../../../SleepHero/SleepHero";
 
 const SleepPage = ({
   handleSleep,
@@ -12,6 +13,7 @@ const SleepPage = ({
 }) => {
   return (
     <div>
+      <SleepHero/>
       <SleepForm
         handleSleep={handleSleep}
         sleepDate={sleepDate}

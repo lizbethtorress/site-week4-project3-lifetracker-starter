@@ -11,9 +11,9 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE IF NOT EXISTS sleep(
       id SERIAL PRIMARY KEY,
       sleepDate TIMESTAMP NOT NULL,
-      wakeDate TIMESTAMP NOT NULL
+      wakeDate TIMESTAMP NOT NULL,
+      user_id  INTEGER
   );
-  
 `;
 
 //DB information to connect

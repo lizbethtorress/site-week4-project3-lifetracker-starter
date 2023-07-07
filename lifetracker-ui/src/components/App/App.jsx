@@ -9,6 +9,7 @@ import LandingPage from "../LandingPage/LandingPage";
 import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
 import SleepPage from "../SleepPage/SleepPage";
+import axios from "axios";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -18,7 +19,7 @@ function App() {
   const [wakeDate, setwakeDate] = useState("");
   const [sleepSubmitted, setsleepSubmitted] = useState(false);
   const [user_id, setuser_id] = useState(0);
-  const [sleepData, setsleepData] = useState({})
+  const [sleepData, setsleepData] = useState([])
 
 
   useEffect(() => {
@@ -80,42 +81,84 @@ function App() {
   };
 
   const handleSleep = async () => {
+    // try {
+    //   const response = await fetch("http://localhost:3001/api/sleep", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ sleepDate, wakeDate, user_id}),
+    //   });
+
+    //   const data = await response.json();
+    // } catch (error) {
+    //   console.error("Error:", error);
+    // }
+    // setsleepDate("");
+    // setwakeDate("");
     try {
-      const response = await fetch("http://localhost:3001/api/sleep/", {
+      const response = await fetch("http://localhost:3001/api/sleep", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ sleepDate, wakeDate, user_id}),
+        body: JSON.stringify({ sleepDate, wakeDate, user_id }),
+        
       });
 
+      
       const data = await response.json();
-
+      // setuser_id(data.user.id)
+      // console.log("user_id", data)
+      // Update sleepData state with the new data
+      //setsleepData([...sleepData, data]);
     } catch (error) {
       console.error("Error:", error);
     }
     setsleepDate("");
     setwakeDate("");
+    fetchsleepData()
   };
 
   const fetchsleepData = async () => {
-    try {
-      const response = await get("http://localhost:3001/api/sleep", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ sleepDate, wakeDate, user_id }),
-      });
+    // try {
+    //   const response = await fetch("http://localhost:3001/api/sleep", {
+    //     method: "GET",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ sleepDate, wakeDate, user_id }),
+    //   });
 
-      const data = await response.json();
-      setsleepData(data)
+    //   const data = await response.json();
+    //   setsleepData(data)
       
+    // } catch (error) {
+    //   console.error("Error:", error);
+    // }
+    try {
+
+      //advanced- optional [cache]
+      //using cacheBust is advanced topic- its optional
+      const response = await axios.get(
+        `http://localhost:3001/api/sleep`
+      );
+   
+      setsleepData(response.data);
     } catch (error) {
       console.error("Error:", error);
     }
   
+
   };
+  // useEffect(() => {
+  //   handleSleep();
+  // }, []);
+
+  
+  useEffect(() => {
+    fetchsleepData();
+  }, []);
 
 
   //Registration function to handle registration
