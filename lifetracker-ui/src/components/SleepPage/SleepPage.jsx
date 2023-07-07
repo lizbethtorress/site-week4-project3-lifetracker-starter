@@ -7,7 +7,8 @@ const SleepPage = ({
   setsleepDate,
   wakeDate,
   setwakeDate,
-  sleepSubmitted,
+  sleepData,
+  // sleepSubmitted,
 }) => {
   return (
     <div>
@@ -17,7 +18,7 @@ const SleepPage = ({
         setsleepDate={setsleepDate}
         wakeDate={wakeDate}
         setwakeDate={setwakeDate}
-        sleepSubmitted={sleepSubmitted}
+        sleepData={sleepData}
       />
     </div>
   );

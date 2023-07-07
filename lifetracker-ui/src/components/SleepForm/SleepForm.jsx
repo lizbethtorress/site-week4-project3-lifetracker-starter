@@ -7,9 +7,10 @@ const SleepForm = ({
   setsleepDate,
   wakeDate,
   setwakeDate,
-  sleepSubmitted,
+  sleepData,
 }) => {
-
+  const [submitted, setSubmitted] = useState(false);
+  const [showForm, setShowForm] = useState(true);
 
   const handleSleepDateChange = (e) => {
     setsleepDate(e.target.value);
@@ -19,35 +20,63 @@ const SleepForm = ({
     setwakeDate(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSleep();
+    setSubmitted(true);
+    setShowForm(false);
+  };
+
+  const handleLogMoreSleep = () => {
+    setShowForm(true);
+    setSubmitted(false);
+  };
+
+  console.log("LOVENFEJOWF", sleepData)
   return (
     <div className="sleep-form-container">
-      <form onSubmit={handleSleep}>
-        <div className="form-group">
-          <label>Sleep Date:</label>
-          <input
-            type="datetime-local"
-            value={sleepDate}
-            onChange={handleSleepDateChange}
-          />
-        </div>
-        <div className="form-group">
-          <label>Wake Date:</label>
-          <input
-            type="datetime-local"
-            value={wakeDate}
-            onChange={handleWakeDateChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      {/* {sleepSubmitted && ( */}
-      {/* )} */}
-      <div className="submitted-data">
+      {showForm ? (
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Sleep Date:</label>
+            <input
+              type="datetime-local"
+              className="form-input"
+              value={sleepDate}
+              onChange={handleSleepDateChange}
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Wake Date:</label>
+            <input
+              type="datetime-local"
+              className="form-input"
+              value={wakeDate}
+              onChange={handleWakeDateChange}
+            />
+          </div>
+          <button type="submit" className="form-button">
+            Submit
+          </button>
+        </form>
+      ) : (
+        <div className="submitted-data">
+          
           <p>Sleep Date: {sleepDate}</p>
           <p>Wake Date: {wakeDate}</p>
+          <button className="log-more-button" onClick={handleLogMoreSleep}>
+            Log More Sleep
+          </button>
         </div>
+      )}
+      <ul className="car-list">
+        {/* {sleepData.map((userSleep) => (
+          <li key={user.id} className="car-item">
+            {userSleep.sleepDate}
+          </li>
+        ))} */}
+      </ul>
     </div>
-    
   );
 };
 

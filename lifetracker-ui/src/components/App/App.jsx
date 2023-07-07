@@ -17,6 +17,9 @@ function App() {
   const [sleepDate, setsleepDate] = useState("");
   const [wakeDate, setwakeDate] = useState("");
   const [sleepSubmitted, setsleepSubmitted] = useState(false);
+  const [user_id, setuser_id] = useState(0);
+  const [sleepData, setsleepData] = useState({})
+
 
   useEffect(() => {
     const checkLoggedIn = () => {
@@ -50,6 +53,7 @@ function App() {
       });
 
       const data = await response.json();
+      
 
       if (response.status === 200) {
         // const { token } = response.data;
@@ -59,6 +63,7 @@ function App() {
         //Successful Login
         setLoggedIn(true);
         setLoginError("");
+        setuser_id(data.user.id)
         console.log(data.message); //optional - display a success message
         console.log(data.user.name); //another way to get the username
 
@@ -76,24 +81,42 @@ function App() {
 
   const handleSleep = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/sleep", {
+      const response = await fetch("http://localhost:3001/api/sleep/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ sleepDate, wakeDate }),
+        body: JSON.stringify({ sleepDate, wakeDate, user_id}),
       });
 
       const data = await response.json();
 
-      console.log("sanity check", data);
     } catch (error) {
       console.error("Error:", error);
     }
-    setsleepSubmitted(true)
-    setSleepDate("");
-    setWakeDate("");
+    setsleepDate("");
+    setwakeDate("");
   };
+
+  const fetchsleepData = async () => {
+    try {
+      const response = await get("http://localhost:3001/api/sleep", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ sleepDate, wakeDate, user_id }),
+      });
+
+      const data = await response.json();
+      setsleepData(data)
+      
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  
+  };
+
 
   //Registration function to handle registration
   const handleRegistration = async (
@@ -171,7 +194,8 @@ function App() {
                         setsleepDate={setsleepDate}
                         wakeDate={wakeDate}
                         setwakeDate={setwakeDate}
-                        sleepSubmitted={sleepSubmitted}
+                        sleepData={sleepData}
+                        // sleepSubmitted={sleepSubmitted}
                       />
                     }
                   />
