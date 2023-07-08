@@ -4,7 +4,7 @@ import "./ActivityHero.css";
 const ActivityHero = () => {
   return (
     <div className="activity-hero">
-      Activity
+      <h1>Activity</h1>
     </div>
   );
 };

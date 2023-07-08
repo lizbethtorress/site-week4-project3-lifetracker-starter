@@ -54,7 +54,6 @@ function App() {
       });
 
       const data = await response.json();
-      
 
       if (response.status === 200) {
         // const { token } = response.data;
@@ -81,21 +80,6 @@ function App() {
   };
 
   const handleSleep = async () => {
-    // try {
-    //   const response = await fetch("http://localhost:3001/api/sleep", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ sleepDate, wakeDate, user_id}),
-    //   });
-
-    //   const data = await response.json();
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
-    // setsleepDate("");
-    // setwakeDate("");
     try {
       const response = await fetch("http://localhost:3001/api/sleep", {
         method: "POST",
@@ -106,12 +90,8 @@ function App() {
         
       });
 
-      
       const data = await response.json();
-      // setuser_id(data.user.id)
-      // console.log("user_id", data)
-      // Update sleepData state with the new data
-      //setsleepData([...sleepData, data]);
+  
     } catch (error) {
       console.error("Error:", error);
     }
@@ -121,45 +101,21 @@ function App() {
   };
 
   const fetchsleepData = async () => {
-    // try {
-    //   const response = await fetch("http://localhost:3001/api/sleep", {
-    //     method: "GET",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ sleepDate, wakeDate, user_id }),
-    //   });
-
-    //   const data = await response.json();
-    //   setsleepData(data)
-      
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
     try {
-
       //advanced- optional [cache]
       //using cacheBust is advanced topic- its optional
       const response = await axios.get(
         `http://localhost:3001/api/sleep`
       );
-   
       setsleepData(response.data);
     } catch (error) {
       console.error("Error:", error);
     }
-  
-
   };
-  // useEffect(() => {
-  //   handleSleep();
-  // }, []);
-
   
   useEffect(() => {
     fetchsleepData();
   }, []);
-
 
   //Registration function to handle registration
   const handleRegistration = async (

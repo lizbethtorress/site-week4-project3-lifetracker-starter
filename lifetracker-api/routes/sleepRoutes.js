@@ -6,8 +6,6 @@ const pool = require("../db/pool");
 
 // Get all sleep info from the database
 router.get("/", async (req, res) => {
-    // Set cache-control header to disable caching (optional-advanced)
-    // res.setHeader("Cache-Control", "no-cache");
     try {
       const query = "SELECT * FROM users, sleep WHERE sleep.user_id = users.id ";
       const result = await pool.query(query);

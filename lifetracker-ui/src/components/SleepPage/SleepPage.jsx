@@ -1,6 +1,6 @@
 import React from "react";
 import SleepForm from "../SleepForm/SleepForm";
-import SleepHero from "../../../SleepHero/SleepHero";
+import SleepHero from "../SleepHero/SleepHero";
 
 const SleepPage = ({
   handleSleep,
@@ -9,7 +9,6 @@ const SleepPage = ({
   wakeDate,
   setwakeDate,
   sleepData,
-  // sleepSubmitted,
 }) => {
   return (
     <div>

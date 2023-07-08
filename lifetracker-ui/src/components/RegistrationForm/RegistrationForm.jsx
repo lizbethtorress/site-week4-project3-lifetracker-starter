@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import "./RegistrationForm.css";
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationForm = ({ handleRegistration }) => {
-  //   const [formData, setFormData] = useState({
-  //     email: "",
-  //     username: "",
-  //     firstName: "",
-  //     lastName: "",
-  //     password: "",
-  //     passwordConfirm: "",
-  //   });
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,13 +11,11 @@ const RegistrationForm = ({ handleRegistration }) => {
   const [lastName, setlastName] = useState("");
   const [passwordConfirm, setpasswordConfirm] = useState("");
 
-  //   const handleChange = (e) => {
-  //     setFormData({ ...formData, [e.target.name]: e.target.value });
-  //   };
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     handleRegistration(name, email, password, username, lastName);
+    navigate("/activity")
   };
 
   return (
