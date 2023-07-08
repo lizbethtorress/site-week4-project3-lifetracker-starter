@@ -2,6 +2,11 @@
 
 ## Overview
 
+video 
+
+<div style="position: relative; padding-bottom: 55.15624999999999%; height: 0;"><iframe src="https://www.loom.com/embed/0c4bd310e1df481093ff68708e11466f?sid=fc4ac35a-a496-4eed-9482-dd579ba70e60" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
 > Data is the new oil - Clive Humbly
 
 Everywhere around us is data waiting to be collected and utilized. In recent years, we've seen the rise of applications and services that exist to quantify concepts that were previously hard to capture. FitBit, Apple Health, and Woop are all $1 billion dollar services to offer tracking statistics about how we live our lives. The LifeTracker app you'll be building will do exactly that - track your life by quantifying your activity.
