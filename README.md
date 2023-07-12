@@ -4,7 +4,7 @@
 
 video 
 
-<div style="position: relative; padding-bottom: 55.15624999999999%; height: 0;"><iframe src="https://www.loom.com/embed/0c4bd310e1df481093ff68708e11466f?sid=fc4ac35a-a496-4eed-9482-dd579ba70e60" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/42a734c50203432c8d2b73218d4ed62f?sid=a9b107fc-47f8-457d-b29b-b1ee5b858e07" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 
 > Data is the new oil - Clive Humbly
